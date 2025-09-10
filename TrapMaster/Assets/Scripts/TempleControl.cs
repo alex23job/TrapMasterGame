@@ -25,7 +25,7 @@ public class TempleControl : MonoBehaviour
         if (timer > 0f) timer -= Time.deltaTime;
         else
         {
-            timer = 2f;
+            timer = 1f;
             switch(count)
             {
                 case 0:
@@ -43,7 +43,7 @@ public class TempleControl : MonoBehaviour
             }
             count++;
             count %= 4;
-            print(count);
+            //print(count);
         }
     }
 }

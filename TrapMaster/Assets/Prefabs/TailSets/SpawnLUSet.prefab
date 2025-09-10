@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3598029797576065765}
   - component: {fileID: -537643512451056153}
+  - component: {fileID: -7473264314908002084}
   m_Layer: 0
   m_Name: SpawnLUSet
   m_TagString: Untagged
@@ -60,8 +61,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7fe80c1f048f674b9695eec13df59c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  setID: 1
-  tails: 1d000000160000001600000016000000150000002a000000020000000900000018000000160000001600000001000000150000000e0000000200000000000000
+  setID: 2
+  tails: 02000000010000000100000001000000010000000400000000000000000000000200000001000000010000000000000001000000000000000000000000000000
+--- !u!114 &-7473264314908002084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8317348524746061488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fc340c5755e50340a8591a25026ca45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1382071372910542674
 PrefabInstance:
   m_ObjectHideFlags: 0

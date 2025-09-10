@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6590400285247345416}
   - component: {fileID: -5208520233741290615}
+  - component: {fileID: 4753722268538126540}
   m_Layer: 0
   m_Name: MiddleSet6m
   m_TagString: Untagged
@@ -26,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 3545382919157195252}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8, y: 0, z: 8}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -60,8 +61,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7fe80c1f048f674b9695eec13df59c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  setID: 0
-  tails: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  setID: 20
+  tails: 01000000010000000000000000000000000000000000000000000000010000000100000001000000010000000200000000000000000000000000000000000000
+--- !u!114 &4753722268538126540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3545382919157195252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fc340c5755e50340a8591a25026ca45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &77221583389418145
 PrefabInstance:
   m_ObjectHideFlags: 0

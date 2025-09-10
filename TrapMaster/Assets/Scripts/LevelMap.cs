@@ -1,14 +1,22 @@
 using System;
 using System.Collections.Generic;
+using System.Text;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class LevelMap : MonoBehaviour
 {
     [SerializeField] private GameObject[] setPrefabs;
 
+    private List<MapLevelInfo> mapLevels = new List<MapLevelInfo>();
+    private List<GameObject> sets = new List<GameObject>();
+    private int sizePole = 20;
+    private int[] pole;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        GenerateAllLevels();
         GenerateMap();
     }
 
@@ -18,9 +26,68 @@ public class LevelMap : MonoBehaviour
         
     }
 
-    private void GenerateMap()
+    private void GenerateAllLevels()
     {
+        if (mapLevels.Count > 0) mapLevels.Clear();
+        List<SetsInfo> sets = new List<SetsInfo>();
+        sets.Add(new SetsInfo(2, 0, 0, 0));
+        sets.Add(new SetsInfo(7, 90, 1, 0));
+        sets.Add(new SetsInfo(7, 90, 2, 0));
+        sets.Add(new SetsInfo(7, 90, 3, 0));
+        sets.Add(new SetsInfo(4, 180, 4, 0));
+        sets.Add(new SetsInfo(7, 0, 0, 1));
+        sets.Add(new SetsInfo(23, 270, 1, 1));
+        sets.Add(new SetsInfo(12, 90, 2, 1));
+        sets.Add(new SetsInfo(23, 0, 3, 1));
+        sets.Add(new SetsInfo(7, 180, 4, 1));
+        sets.Add(new SetsInfo(7, 0, 0, 2));
+        sets.Add(new SetsInfo(12, 0, 1, 2));
+        sets.Add(new SetsInfo(1, 0, 2, 2));
+        sets.Add(new SetsInfo(12, 180, 3, 2));
+        sets.Add(new SetsInfo(7, 180, 4, 2));
+        sets.Add(new SetsInfo(7, 0, 0, 3));
+        sets.Add(new SetsInfo(23, 180, 1, 3));
+        sets.Add(new SetsInfo(12, 270, 2, 3));
+        sets.Add(new SetsInfo(23, 90, 3, 3));
+        sets.Add(new SetsInfo(7, 180, 4, 3));
+        sets.Add(new SetsInfo(4, 0, 0, 4));
+        sets.Add(new SetsInfo(7, 270, 1, 4));
+        sets.Add(new SetsInfo(7, 270, 2, 4));
+        sets.Add(new SetsInfo(7, 270, 3, 4));
+        sets.Add(new SetsInfo(2, 180, 4, 4));
+        mapLevels.Add(new MapLevelInfo(1, sets));
+    }
 
+    private void GenerateMap()
+    {   //  получить из GM номер уровня, а пока единственный нулевой
+        MapLevelInfo mapInfo = mapLevels[0];
+        pole = new int[sizePole * sizePole];
+        int i, j, x, y, setX, setY;
+        for (i = 0; i < sizePole * sizePole; i++) pole[i] = -1;
+        int[] tmp;
+        
+        for (i = 0; i < mapInfo.CountSets; i++)
+        {
+            setX = 4 * (i % 5); setY = (4 * sizePole) * (i / 5);
+            SetsInfo setsInfo = mapInfo.GetSetsInfo(i);
+            if (setsInfo != null && (setsInfo.ID > 0) && (setsInfo.ID <= setPrefabs.Length))
+            {
+                GameObject goSet = Instantiate(setPrefabs[setsInfo.ID - 1]);
+                SetForLevelInfo setFor = goSet.GetComponent<SetForLevelInfo>();
+                if (setFor != null)
+                {
+                    setFor.SetParams(setsInfo);
+                    tmp = setFor.GetTailsTable();
+                    for (j = 0; j < tmp.Length; j++)   //  должно быть 16
+                    {
+                        x = j % 4; y = j / 4;
+                        pole[setY + y * sizePole + setX + x] = tmp[j];
+                    }
+                    setFor.SetPositionAndRotation(-16f, 8f, 16f, 8, 0);
+                }
+                sets.Add(goSet);
+            }
+        }
     }
 }
 
@@ -28,8 +95,50 @@ public class LevelMap : MonoBehaviour
 public class MapLevelInfo
 {
     private int level;
-    private List<SetTailsInfo> setTails = new List<SetTailsInfo>();
+    private List<SetsInfo> setTails = new List<SetsInfo>();
 
     public int LevelNumber {  get { return level; } }
+    public int CountSets {  get { return setTails.Count; } }
 
+    public MapLevelInfo() { }
+    public MapLevelInfo(int lev, List<SetsInfo> list)
+    {
+        level = lev;
+        setTails = list;
+    }
+
+    public MapLevelInfo(string csv, string sep = "#")
+    {
+        string[] ar = csv.Split(sep, StringSplitOptions.RemoveEmptyEntries);
+        if (ar != null && ar.Length > 1)
+        {
+            level = int.Parse(ar[0]);
+            if (int.TryParse(ar[1], out int count))
+            {
+                for (int i = 0; i < count; i++)
+                {
+                    setTails.Add(new SetsInfo(ar[i + 2], sep = "="));
+                }
+            }
+        }
+    }
+
+    public SetsInfo GetSetsInfo(int index)
+    {
+        if (index >= 0 && index < setTails.Count)
+        {
+            return setTails[index];
+        }
+        return null;
+    }
+
+    public string ToCsvString(string sep = "#")
+    {
+        StringBuilder sb = new StringBuilder($"{level}{sep}{setTails.Count}{sep}");
+        for (int i = 0; i < setTails.Count; i++) 
+        {
+            sb.Append($"{setTails[i].ToCsvString("=")}{sep}");
+        }
+        return sb.ToString();
+    }
 }
