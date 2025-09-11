@@ -90,10 +90,17 @@ public class LevelMap : MonoBehaviour
                             //print($"i={i}   x={x} y={y} j={j} name={goSet.transform.GetChild(j).name}");
                             //SpawnEnemy spawn = goSet.transform.GetChild(j).gameObject.GetComponent<SpawnEnemy>();
                             SpawnEnemy spawn = goSet.transform.GetChild(5).gameObject.GetComponent<SpawnEnemy>();
-                            if (spawn != null) listSpawns.Add(spawn);
+                            if (spawn != null)
+                            {
+                                spawn.UpdateSpawnPosition((x == 2) ? 1 : -1, (y == 2) ? -1 : 1);
+                                //print($"i={i} child5   x={x} y={y} j={j} name={spawn.name}  spawnPos=<{spawn.SpawnPos}>");
+                                listSpawns.Add(spawn);
+                            }
                             else
                             {
                                 spawn = goSet.transform.GetChild(9).gameObject.GetComponent<SpawnEnemy>();
+                                spawn.UpdateSpawnPosition((x == 2) ? 1 : -1, (y == 2) ? -1 : 1);
+                                //print($"i={i} child9   x={x} y={y} j={j} name={spawn.name}  spawnPos=<{spawn.SpawnPos}>");
                                 if (spawn != null) listSpawns.Add(spawn);
                             }
                             //print($"i={i}   pos={spawn.transform.position} name={spawn.name}");
@@ -119,7 +126,7 @@ public class LevelMap : MonoBehaviour
             {
                 foreach (int num in path)
                 {
-                    vectors.Add(new Vector3(-20f + 2 * (num % sizePole), 1f, 20f - 2 * (num / sizePole)));
+                    vectors.Add(new Vector3(-19f + 2 * (num % sizePole), 1f, 19f - 2 * (num / sizePole)));
                 }
                 spawn.TranslatePath(vectors);
             }

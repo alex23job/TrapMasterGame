@@ -11,6 +11,7 @@ public class SpawnEnemy : MonoBehaviour
     private float timer;
     private bool isPause = false;
     private Vector3 spawnPosition = Vector3.zero;
+    private Vector2 delta = Vector2.zero;
 
     public Vector3 SpawnPos { get => spawnPosition; }
 
@@ -40,10 +41,24 @@ public class SpawnEnemy : MonoBehaviour
         if (spawnPosition == Vector3.zero)
         {
             spawnPosition = transform.parent.position;
-            spawnPosition.x += transform.localPosition.x;
-            spawnPosition.z += transform.localPosition.z;
-            print($"SpawnPos={SpawnPos}");
+            spawnPosition.x += delta.x;
+            spawnPosition.y = 0.5f;
+            spawnPosition.z += delta.y;
+            //print($"SpawnPos={SpawnPos}");
         }
+    }
+
+    public void UpdateSpawnPosition(int dx, int dy)
+    {
+        delta = new Vector2( dx, dy );
+        /*if (spawnPosition == Vector3.zero)
+        {
+            spawnPosition = transform.parent.position;
+            spawnPosition.x += dx;
+            spawnPosition.y = 0.5f;
+            spawnPosition.z += dy;
+            print($"SpawnPos={SpawnPos}");
+        }*/
     }
 
     public void TranslatePath(List<Vector3> newPath)
@@ -67,7 +82,11 @@ public class SpawnEnemy : MonoBehaviour
 
     private void Spawn()
     {
-        GameObject enemy = Instantiate(enemyPrefab, transform.position, transform.rotation);
+        Vector3 pos = transform.position;
+        pos.y = 0.5f;
+        //GameObject enemy = Instantiate(enemyPrefab, transform.position, transform.rotation);
+        GameObject enemy = Instantiate(enemyPrefab, pos, transform.rotation);
+        //print($"Enemy spawn position = <{enemy.transform.position}> (rot=<{enemy.transform.rotation.eulerAngles}>)     point[0] = <{path[0]}>");
         enemy.GetComponent<EnemyMovement>().SetPath(path);
     }
 }

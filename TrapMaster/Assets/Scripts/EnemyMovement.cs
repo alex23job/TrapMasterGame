@@ -12,7 +12,7 @@ public class EnemyMovement : MonoBehaviour
     private List<Vector3> points = new List<Vector3>();
     private int curIndex = 0;
     private Rigidbody rb;
-    private float stoppingDistance = 1f;
+    private float stoppingDistance = 0.2f;
 
     private void Awake()
     {
@@ -31,16 +31,21 @@ public class EnemyMovement : MonoBehaviour
         if (isMove)
         {
             // ѕровер€ем, достигли ли мы текущей точки
-            if (Vector3.Distance(transform.position, target) < stoppingDistance)
+            Vector2 pos = new Vector2(transform.position.x, transform.position.z);
+            Vector2 tg = new Vector2(target.x, target.z);
+            //if (Vector3.Distance(transform.position, target) < stoppingDistance)
+            if (Vector3.Distance(pos, tg) < stoppingDistance)
             {
                 NextPoint();
             }
+            else
+            {
+                // ѕоворачиваем в сторону следующей точки
+                LookAtWaypoint();
 
-            // ѕоворачиваем в сторону следующей точки
-            LookAtWaypoint();
-
-            // ѕеремещаем врага к текущей точке
-            MoveTowardsWaypoint();
+                // ѕеремещаем врага к текущей точке
+                MoveTowardsWaypoint();
+            }
         }
     }
 
@@ -54,7 +59,7 @@ public class EnemyMovement : MonoBehaviour
     void LookAtWaypoint()
     {
         // ѕоворачиваем врага в сторону следующей точки
-        Vector3 dir = target - transform.position;
+        Vector3 dir = target - transform.position;dir.y = 0f;
         Quaternion lookRot = Quaternion.LookRotation(dir);
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRot, rotationSpeed * Time.deltaTime);
     }
@@ -62,7 +67,7 @@ public class EnemyMovement : MonoBehaviour
     void MoveTowardsWaypoint()
     {
         // ѕеремещаем врага к текущей точке
-        Vector3 dir = target - transform.position;
+        Vector3 dir = target - transform.position;dir.y = 0f;
         rb.MovePosition(transform.position + dir.normalized * movementSpeed * Time.deltaTime);
     }
 

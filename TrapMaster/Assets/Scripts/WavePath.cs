@@ -52,12 +52,12 @@ public class WavePath
             }
             path.Reverse();
 
-            StringBuilder sb = new StringBuilder("Path -> ");
+            /*StringBuilder sb = new StringBuilder("Path -> ");
             for (i = 0; i < path.Count; i++)
             {
                 sb.Append($"{path[i]} ");
             }
-            Debug.Log(sb.ToString());
+            Debug.Log(sb.ToString());*/
             return true;
         }
         return false;
@@ -109,7 +109,7 @@ public class WavePath
                 {
                     if (minZn > arQu[endPath[i]]) { minZn = arQu[endPath[i]]; endNum = endPath[i]; }
                 }
-                Debug.Log($"endNum={endNum} i={i} endPath[i]={endPath[i]} arQu[{endPath[i]}]={arQu[endPath[i]]}");
+                //Debug.Log($"endNum={endNum} i={i} endPath[i]={endPath[i]} arQu[{endPath[i]}]={arQu[endPath[i]]}");
             }
         }
         return endNum;
