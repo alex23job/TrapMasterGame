@@ -7,9 +7,11 @@ using UnityEngine;
 public class LevelMap : MonoBehaviour
 {
     [SerializeField] private GameObject[] setPrefabs;
+    [SerializeField] private GameObject[] enemyList;
 
     private List<MapLevelInfo> mapLevels = new List<MapLevelInfo>();
     private List<GameObject> sets = new List<GameObject>();
+    private List<SpawnEnemy> listSpawns = new List<SpawnEnemy>();
     private int sizePole = 20;
     private int[] pole;
 
@@ -18,6 +20,7 @@ public class LevelMap : MonoBehaviour
     {
         GenerateAllLevels();
         GenerateMap();
+        BeginSpawn();
     }
 
     // Update is called once per frame
@@ -82,11 +85,65 @@ public class LevelMap : MonoBehaviour
                     {
                         x = j % 4; y = j / 4;
                         pole[setY + y * sizePole + setX + x] = tmp[j];
+                        if (tmp[j] == 4)
+                        {   //  spawn tail
+                            //print($"i={i}   x={x} y={y} j={j} name={goSet.transform.GetChild(j).name}");
+                            //SpawnEnemy spawn = goSet.transform.GetChild(j).gameObject.GetComponent<SpawnEnemy>();
+                            SpawnEnemy spawn = goSet.transform.GetChild(5).gameObject.GetComponent<SpawnEnemy>();
+                            if (spawn != null) listSpawns.Add(spawn);
+                            else
+                            {
+                                spawn = goSet.transform.GetChild(9).gameObject.GetComponent<SpawnEnemy>();
+                                if (spawn != null) listSpawns.Add(spawn);
+                            }
+                            //print($"i={i}   pos={spawn.transform.position} name={spawn.name}");
+                        }
                     }
                     setFor.SetPositionAndRotation(-16f, 8f, 16f, 8, 0);
                 }
                 sets.Add(goSet);
             }
+        }
+    }
+
+    private void BeginSpawn()
+    {
+        print($"count spawn = {listSpawns.Count}");
+        foreach(SpawnEnemy spawn in listSpawns)
+        {
+            spawn.SetPrefab(enemyList[0]);
+            spawn.SetDelaySpawn(5f);
+            List<int> path = GetEnemyPath(spawn.SpawnPos);
+            List<Vector3> vectors = new List<Vector3>();
+            if (path != null && path.Count > 0)
+            {
+                foreach (int num in path)
+                {
+                    vectors.Add(new Vector3(-20f + 2 * (num % sizePole), 1f, 20f - 2 * (num / sizePole)));
+                }
+                spawn.TranslatePath(vectors);
+            }
+        }
+    }
+
+    private List<int> GetEnemyPath(Vector3 spawnPos)
+    {
+        List<int> path = new List<int>();
+        int x, y;
+        x = Mathf.RoundToInt((spawnPos.x + 19.0f) / 2);
+        y = Mathf.RoundToInt((19.0f - spawnPos.z) / 2);
+        int[] ends = new int[4]{ 188, 191, 208, 211 };
+        print($"startPos={sizePole * y + x} (x={x}, y={y})");
+        WavePath wavePath = new WavePath();
+        path = wavePath.GetPath(sizePole * y + x, ends, pole, sizePole);
+        return path;
+    }
+
+    private void PauseSpawn(bool isPause)
+    {
+        foreach (SpawnEnemy spawn in listSpawns)
+        {
+            spawn.SetPause(isPause);
         }
     }
 }

@@ -171,6 +171,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BonusSet2WestUp
       objectReference: {fileID: 0}
+    - target: {fileID: 2516491778723809873, guid: 666502b0a0d5f934d86206267930f329, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -227,6 +231,10 @@ PrefabInstance:
     - target: {fileID: 2516491778723809873, guid: 666502b0a0d5f934d86206267930f329, type: 3}
       propertyPath: m_Name
       value: BonusSet2OstUp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516491778723809873, guid: 666502b0a0d5f934d86206267930f329, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -285,6 +293,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MiddleSet8ON
       objectReference: {fileID: 0}
+    - target: {fileID: 7569440414799664608, guid: dc7f9816aaaa98045884a210d555a276, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -341,6 +353,10 @@ PrefabInstance:
     - target: {fileID: 7569440414799664608, guid: dc7f9816aaaa98045884a210d555a276, type: 3}
       propertyPath: m_Name
       value: MiddleSet8WS
+      objectReference: {fileID: 0}
+    - target: {fileID: 7569440414799664608, guid: dc7f9816aaaa98045884a210d555a276, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -536,6 +552,9 @@ MonoBehaviour:
   - {fileID: 3545382919157195252, guid: 267fbf949e3b5d84aa07d25aebf2aee3, type: 3}
   - {fileID: 6476735439321100086, guid: 3e5a6cca79f0e994bbc6c66315665165, type: 3}
   - {fileID: 5004490681200412611, guid: 304ae312516772e42a7e67c60d954085, type: 3}
+  - {fileID: 7569440414799664608, guid: dc7f9816aaaa98045884a210d555a276, type: 3}
+  enemyList:
+  - {fileID: 7830515406525238470, guid: b032ac6f3fa1a3249ba26defcae72f30, type: 3}
 --- !u!4 &335077582
 Transform:
   m_ObjectHideFlags: 0
@@ -724,6 +743,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BonusSet2nordCenter
       objectReference: {fileID: 0}
+    - target: {fileID: 2516491778723809873, guid: 666502b0a0d5f934d86206267930f329, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -781,6 +804,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BonusSet2nordLeft
       objectReference: {fileID: 0}
+    - target: {fileID: 2516491778723809873, guid: 666502b0a0d5f934d86206267930f329, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -797,6 +824,10 @@ PrefabInstance:
     - target: {fileID: 3425030763817807990, guid: fd7196793f689ec46b1fba538305585c, type: 3}
       propertyPath: m_Name
       value: MiddleSet1Nord
+      objectReference: {fileID: 0}
+    - target: {fileID: 3425030763817807990, guid: fd7196793f689ec46b1fba538305585c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8437715480494867954, guid: fd7196793f689ec46b1fba538305585c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -944,6 +975,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpawnLDSet
       objectReference: {fileID: 0}
+    - target: {fileID: 8050587586031772271, guid: c66963260d3d0b141b233784a4ab8e5d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -960,6 +995,10 @@ PrefabInstance:
     - target: {fileID: 3425030763817807990, guid: fd7196793f689ec46b1fba538305585c, type: 3}
       propertyPath: m_Name
       value: MiddleSet1Ost
+      objectReference: {fileID: 0}
+    - target: {fileID: 3425030763817807990, guid: fd7196793f689ec46b1fba538305585c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8437715480494867954, guid: fd7196793f689ec46b1fba538305585c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1126,6 +1165,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MiddleSet1West
       objectReference: {fileID: 0}
+    - target: {fileID: 3425030763817807990, guid: fd7196793f689ec46b1fba538305585c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8437715480494867954, guid: fd7196793f689ec46b1fba538305585c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8
@@ -1223,6 +1266,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BonusSet2OstCenter
       objectReference: {fileID: 0}
+    - target: {fileID: 2516491778723809873, guid: 666502b0a0d5f934d86206267930f329, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1279,6 +1326,10 @@ PrefabInstance:
     - target: {fileID: 7569440414799664608, guid: dc7f9816aaaa98045884a210d555a276, type: 3}
       propertyPath: m_Name
       value: MiddleSet8OS
+      objectReference: {fileID: 0}
+    - target: {fileID: 7569440414799664608, guid: dc7f9816aaaa98045884a210d555a276, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1445,6 +1496,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BonusSet2WestDown
       objectReference: {fileID: 0}
+    - target: {fileID: 2516491778723809873, guid: 666502b0a0d5f934d86206267930f329, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1501,6 +1556,10 @@ PrefabInstance:
     - target: {fileID: 2516491778723809873, guid: 666502b0a0d5f934d86206267930f329, type: 3}
       propertyPath: m_Name
       value: BonusSet2OstDown
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516491778723809873, guid: 666502b0a0d5f934d86206267930f329, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1559,6 +1618,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BonusSet2suidCenter
       objectReference: {fileID: 0}
+    - target: {fileID: 2516491778723809873, guid: 666502b0a0d5f934d86206267930f329, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1615,6 +1678,10 @@ PrefabInstance:
     - target: {fileID: 2516491778723809873, guid: 666502b0a0d5f934d86206267930f329, type: 3}
       propertyPath: m_Name
       value: BonusSet2suidRight
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516491778723809873, guid: 666502b0a0d5f934d86206267930f329, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1673,6 +1740,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BonusSet2suidLeft
       objectReference: {fileID: 0}
+    - target: {fileID: 2516491778723809873, guid: 666502b0a0d5f934d86206267930f329, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1689,6 +1760,10 @@ PrefabInstance:
     - target: {fileID: 3425030763817807990, guid: fd7196793f689ec46b1fba538305585c, type: 3}
       propertyPath: m_Name
       value: MiddleSet1Suid
+      objectReference: {fileID: 0}
+    - target: {fileID: 3425030763817807990, guid: fd7196793f689ec46b1fba538305585c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8437715480494867954, guid: fd7196793f689ec46b1fba538305585c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1789,7 +1864,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8317348524746061488, guid: 1908c19cabbb1224ca76836cb1052e93, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1848,6 +1923,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BonusSet2nordRight
       objectReference: {fileID: 0}
+    - target: {fileID: 2516491778723809873, guid: 666502b0a0d5f934d86206267930f329, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1904,6 +1983,10 @@ PrefabInstance:
     - target: {fileID: 8050587586031772271, guid: c66963260d3d0b141b233784a4ab8e5d, type: 3}
       propertyPath: m_Name
       value: SpawnLDSetUR
+      objectReference: {fileID: 0}
+    - target: {fileID: 8050587586031772271, guid: c66963260d3d0b141b233784a4ab8e5d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2000,13 +2083,70 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8903919081961548803, guid: f0776658b480fc9499171ebfb0e9ee37, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f0776658b480fc9499171ebfb0e9ee37, type: 3}
+--- !u!1001 &7375209136381522680
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 596812371709548019, guid: b032ac6f3fa1a3249ba26defcae72f30, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 596812371709548019, guid: b032ac6f3fa1a3249ba26defcae72f30, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 596812371709548019, guid: b032ac6f3fa1a3249ba26defcae72f30, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 596812371709548019, guid: b032ac6f3fa1a3249ba26defcae72f30, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 596812371709548019, guid: b032ac6f3fa1a3249ba26defcae72f30, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 596812371709548019, guid: b032ac6f3fa1a3249ba26defcae72f30, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 596812371709548019, guid: b032ac6f3fa1a3249ba26defcae72f30, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 596812371709548019, guid: b032ac6f3fa1a3249ba26defcae72f30, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 596812371709548019, guid: b032ac6f3fa1a3249ba26defcae72f30, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 596812371709548019, guid: b032ac6f3fa1a3249ba26defcae72f30, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7830515406525238470, guid: b032ac6f3fa1a3249ba26defcae72f30, type: 3}
+      propertyPath: m_Name
+      value: Enemy
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b032ac6f3fa1a3249ba26defcae72f30, type: 3}
 --- !u!1001 &7843962231019077866
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2058,6 +2198,10 @@ PrefabInstance:
     - target: {fileID: 2516491778723809873, guid: 666502b0a0d5f934d86206267930f329, type: 3}
       propertyPath: m_Name
       value: BonusSet2WestCenter
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516491778723809873, guid: 666502b0a0d5f934d86206267930f329, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2118,7 +2262,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8317348524746061488, guid: 1908c19cabbb1224ca76836cb1052e93, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2177,6 +2321,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MiddleSet8WN
       objectReference: {fileID: 0}
+    - target: {fileID: 7569440414799664608, guid: dc7f9816aaaa98045884a210d555a276, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2217,3 +2365,4 @@ SceneRoots:
   - {fileID: 2046398294}
   - {fileID: 335077582}
   - {fileID: 1479756920}
+  - {fileID: 7375209136381522680}

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 585006742664718876}
   - component: {fileID: 4079036536417829034}
   - component: {fileID: 4109163429836463784}
+  - component: {fileID: 2664987820438470135}
   m_Layer: 0
   m_Name: RoadSpawn
   m_TagString: Untagged
@@ -109,5 +110,17 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.02, y: 0.020000001, z: 0.02}
-  m_Center: {x: 0, y: 0.008, z: 0}
+  m_Size: {x: 0.02, y: 0.004, z: 0.02}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2664987820438470135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 496998439416861476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e65d37058ff07a4787bca5a7d603eac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
