@@ -7,6 +7,7 @@ public class PlayerShooting : MonoBehaviour
     [SerializeField] private float speed = 50f;
 
     private Transform bulletSpawn;
+    private int bulletDamage = 5;
     private float timer = 0;
 
     private void Awake()
@@ -33,7 +34,23 @@ public class PlayerShooting : MonoBehaviour
     {
         timer = shootDelay;
         GameObject bullet = Instantiate(bulletPrefab, bulletSpawn.position, transform.rotation);
+        bullet.GetComponent<BulletControl>().SetDamage(bulletDamage);
         bullet.GetComponent<Rigidbody>().AddForce(transform.forward * speed);
         Destroy(bullet, 5f);
+    }
+
+    public void SetMoveSpeed(float speed)
+    {
+        this.speed = speed;
+    }
+
+    public void SetShootingDelay(float shootDelay)
+    {
+        this.shootDelay = shootDelay;
+    }
+
+    public void SetBulletDamage(int dmg)
+    {
+        bulletDamage = dmg;
     }
 }

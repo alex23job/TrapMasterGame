@@ -12,6 +12,7 @@ public class SpawnEnemy : MonoBehaviour
     private bool isPause = false;
     private Vector3 spawnPosition = Vector3.zero;
     private Vector2 delta = Vector2.zero;
+    private LevelControl levelControl = null;
 
     public Vector3 SpawnPos { get => spawnPosition; }
 
@@ -33,6 +34,11 @@ public class SpawnEnemy : MonoBehaviour
                 Spawn();
             }
         }
+    }
+
+    public void SetLevelControl(LevelControl lc)
+    {
+        levelControl = lc;
     }
 
     public void SetPrefab(GameObject prefab)

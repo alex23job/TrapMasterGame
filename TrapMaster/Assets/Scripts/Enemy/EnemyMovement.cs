@@ -14,9 +14,12 @@ public class EnemyMovement : MonoBehaviour
     private Rigidbody rb;
     private float stoppingDistance = 0.2f;
 
+    private Animator anim;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        anim = GetComponent<Animator>();
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

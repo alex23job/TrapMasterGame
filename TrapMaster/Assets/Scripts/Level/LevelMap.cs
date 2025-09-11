@@ -93,6 +93,7 @@ public class LevelMap : MonoBehaviour
                             if (spawn != null)
                             {
                                 spawn.UpdateSpawnPosition((x == 2) ? 1 : -1, (y == 2) ? -1 : 1);
+                                spawn.SetLevelControl(gameObject.GetComponent<LevelControl>());
                                 //print($"i={i} child5   x={x} y={y} j={j} name={spawn.name}  spawnPos=<{spawn.SpawnPos}>");
                                 listSpawns.Add(spawn);
                             }
@@ -100,6 +101,7 @@ public class LevelMap : MonoBehaviour
                             {
                                 spawn = goSet.transform.GetChild(9).gameObject.GetComponent<SpawnEnemy>();
                                 spawn.UpdateSpawnPosition((x == 2) ? 1 : -1, (y == 2) ? -1 : 1);
+                                spawn.SetLevelControl(gameObject.GetComponent<LevelControl>());
                                 //print($"i={i} child9   x={x} y={y} j={j} name={spawn.name}  spawnPos=<{spawn.SpawnPos}>");
                                 if (spawn != null) listSpawns.Add(spawn);
                             }
