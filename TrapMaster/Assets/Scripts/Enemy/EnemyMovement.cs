@@ -49,7 +49,9 @@ public class EnemyMovement : MonoBehaviour
                 // Перемещаем врага к текущей точке
                 MoveTowardsWaypoint();
             }
+            //anim.SetFloat("Speed", 1f);
         }
+        else anim.SetFloat("Speed", 0);
     }
 
     /*void NextWaypoint()
@@ -81,7 +83,12 @@ public class EnemyMovement : MonoBehaviour
             target = points[curIndex];
             curIndex++;
         }
-        else isMove = false;
+        else
+        {
+            isMove = false;
+            //anim.SetFloat("Speed", 0);
+            anim.SetTrigger("IsWalk");
+        }
     }
 
     public void SetPath(List<Vector3> path)
@@ -91,5 +98,7 @@ public class EnemyMovement : MonoBehaviour
         curIndex = 0;
         target = points[curIndex];
         isMove = true;
+        //anim.SetFloat("Speed", 1f);
+        anim.SetTrigger("IsWalk");
     }
 }

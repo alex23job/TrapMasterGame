@@ -9,10 +9,13 @@ public class PlayerShooting : MonoBehaviour
     private Transform bulletSpawn;
     private int bulletDamage = 5;
     private float timer = 0;
+    private Animator anim;
+    private bool isShoot = false;
 
     private void Awake()
     {
         bulletSpawn = transform.GetChild(1).gameObject.GetComponent<Transform>();
+        anim = GetComponent<Animator>();
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -37,6 +40,22 @@ public class PlayerShooting : MonoBehaviour
         bullet.GetComponent<BulletControl>().SetDamage(bulletDamage);
         bullet.GetComponent<Rigidbody>().AddForce(transform.forward * speed);
         Destroy(bullet, 5f);
+        if (isShoot == false)
+        {
+            //anim.SetFloat("WalkSpeed", 0);
+            anim.SetTrigger("IsShoot");
+            isShoot = true;
+            Invoke("EndShoot", 0.55f);
+        }
+    }
+
+    private void EndShoot()
+    {
+        if (isShoot)
+        {
+            anim.SetTrigger("IsShoot");
+            isShoot= false;
+        }
     }
 
     public void SetMoveSpeed(float speed)

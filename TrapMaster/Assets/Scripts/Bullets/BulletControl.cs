@@ -25,8 +25,9 @@ public class BulletControl : MonoBehaviour
         if (other.CompareTag("Player")) return;
         if (other.CompareTag("Enemy"))
         {
-            other.gameObject.GetComponent<EnemyControl>().ChangeHP(-damage);
-            Destroy(other.gameObject);
+            EnemyControl enemyControl = other.gameObject.GetComponent<EnemyControl>();
+            if (enemyControl != null) enemyControl.ChangeHP(-damage);
+            //Destroy(other.gameObject);
         }
         Destroy(gameObject);
     }
