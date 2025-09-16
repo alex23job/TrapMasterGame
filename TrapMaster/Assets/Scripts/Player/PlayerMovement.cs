@@ -64,7 +64,7 @@ public class PlayerMovement : MonoBehaviour
                 anim.SetBool("IsWalk", false);
             }*/
             //anim.SetFloat("WalkSpeed", myVelocity);
-            print($"myVelocity = {myVelocity}");
+            //print($"myVelocity = {myVelocity}");
             myVelocity = 0;
         }
     }

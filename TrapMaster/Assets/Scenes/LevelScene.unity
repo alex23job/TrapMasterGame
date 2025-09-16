@@ -2011,6 +2011,22 @@ MonoBehaviour:
   bulletPrefab: {fileID: 8418429734629413182, guid: 8d72c0f1808a0fa44b63642acc2c710c, type: 3}
   shootDelay: 0.5
   speed: 100
+  levelControl: {fileID: 335077583}
+--- !u!114 &1371617932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1371617922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f4e3d3b599d65b49bd0987c3c72a35e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxEnergy: 100
+  maxHP: 100
+  levelControl: {fileID: 335077583}
 --- !u!1001 &1378627110
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3448,6 +3464,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7145205196721811357, guid: 8b54b0d0597186c4289e83934cd4d9f9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1371617927}
+    - targetCorrespondingSourceObject: {fileID: 7145205196721811357, guid: 8b54b0d0597186c4289e83934cd4d9f9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1371617932}
   m_SourcePrefab: {fileID: 100100000, guid: 8b54b0d0597186c4289e83934cd4d9f9, type: 3}
 --- !u!1001 &8189899068087841778
 PrefabInstance:

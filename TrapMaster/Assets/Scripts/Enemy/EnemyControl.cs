@@ -9,7 +9,16 @@ public class EnemyControl : MonoBehaviour
     private int exp;
     private float radius;
     private LevelControl levelControl;
+    private EnemyMovement enemyMovement;
+    private ArmTrigger armTrigger;
 
+    public float Radius { get { return radius; } }
+
+    private void Awake()
+    {
+        enemyMovement = GetComponent<EnemyMovement>();
+        armTrigger = GetComponentInChildren<ArmTrigger>();
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -22,6 +31,11 @@ public class EnemyControl : MonoBehaviour
         
     }
 
+    public void Attack(Transform target)
+    {
+        if (enemyMovement != null) enemyMovement.Attack(target, damage);
+    }
+
     public void SetParams(LevelControl lc, int hp, int dmg, int rad, int prc, int exp)
     {
         levelControl = lc;
@@ -30,6 +44,7 @@ public class EnemyControl : MonoBehaviour
         this.hp = hp;
         this.exp = exp;
         price = prc;
+        if (armTrigger != null) armTrigger.SetDamage(damage);
     }
 
     public void SetParams(LevelControl lc, EnemyInfo ei)
@@ -40,6 +55,7 @@ public class EnemyControl : MonoBehaviour
         radius = ei.Radius;
         damage = ei.Damage;
         price = ei.Price;
+        if (armTrigger != null) armTrigger.SetDamage(damage);
     }
 
     public void ChangeHP(int zn)

@@ -294,6 +294,8 @@ GameObject:
   - component: {fileID: 737911334361077434}
   - component: {fileID: 2569367999289722713}
   - component: {fileID: 7494850628905706252}
+  - component: {fileID: 8943366997535454470}
+  - component: {fileID: 4862688868389824293}
   m_Layer: 0
   m_Name: Molot
   m_TagString: Untagged
@@ -370,6 +372,39 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &8943366997535454470
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4052503814334687086}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.019756896, y: 0.00465733, z: 0.0058342232}
+  m_Center: {x: -0.00000017206342, y: -0.000000022461247, z: -0.025748568}
+--- !u!114 &4862688868389824293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4052503814334687086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdd82f1ea9a747a44bea1fd089f61486, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7830515406525238470
 GameObject:
   m_ObjectHideFlags: 0
@@ -384,6 +419,7 @@ GameObject:
   - component: {fileID: 6066192244281030448}
   - component: {fileID: 7049813481960354954}
   - component: {fileID: -6347317134499935185}
+  - component: {fileID: 7010171560938447835}
   - component: {fileID: 2399525780500813664}
   m_Layer: 0
   m_Name: Enemy
@@ -493,6 +529,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4468b2fef4e031e45a5818f3ecbefea8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7010171560938447835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7830515406525238470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: def9601a84d7760408fe6368b08c663b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!95 &2399525780500813664

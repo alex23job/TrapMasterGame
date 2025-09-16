@@ -394,6 +394,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Temple
       objectReference: {fileID: 0}
+    - target: {fileID: 459652428735464956, guid: 5a56de43b4f7d3c4fb11a8ad07fff1ae, type: 3}
+      propertyPath: m_TagString
+      value: Temple
+      objectReference: {fileID: 0}
     - target: {fileID: 3504199500649547068, guid: 5a56de43b4f7d3c4fb11a8ad07fff1ae, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

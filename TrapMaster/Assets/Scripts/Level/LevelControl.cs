@@ -31,4 +31,9 @@ public class LevelControl : MonoBehaviour
     {
         ui_Control.ViewEnergy(energy);
     }
+
+    public void ViewPlayerHP(int hp)
+    {
+        ui_Control.ViewHP(hp);
+    }
 }

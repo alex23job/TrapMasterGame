@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
@@ -8,6 +9,7 @@ public class EnemyMovement : MonoBehaviour
     private float rotationSpeed = 5f;
     private Vector3 target;
     private bool isMove = false;
+    private bool isAttack = false;
 
     private List<Vector3> points = new List<Vector3>();
     private int curIndex = 0;
@@ -15,11 +17,13 @@ public class EnemyMovement : MonoBehaviour
     private float stoppingDistance = 0.2f;
 
     private Animator anim;
+    CapsuleCollider capsule;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
+        capsule = GetComponent<CapsuleCollider>();
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -44,14 +48,14 @@ public class EnemyMovement : MonoBehaviour
             else
             {
                 // ѕоворачиваем в сторону следующей точки
-                LookAtWaypoint();
+                if (isAttack == false) LookAtWaypoint();
 
                 // ѕеремещаем врага к текущей точке
                 MoveTowardsWaypoint();
             }
             //anim.SetFloat("Speed", 1f);
         }
-        else anim.SetFloat("Speed", 0);
+        else anim.SetBool("IsWalk", false);
     }
 
     /*void NextWaypoint()
@@ -61,7 +65,50 @@ public class EnemyMovement : MonoBehaviour
         target = points[curIndex];
     }*/
 
-    void LookAtWaypoint()
+    public void Attack(Transform targetAttack, int damage)
+    {
+        Vector3 direction = targetAttack.position - transform.position;
+        direction.y = 0;
+        if (targetAttack.CompareTag("Player"))
+        {
+            //print($"dir={direction}({direction.magnitude})  rot={Quaternion.LookRotation(direction)}");
+            if (direction.magnitude < 1.3f)
+            {
+                isAttack = true;
+                transform.rotation = Quaternion.LookRotation(direction);
+                anim.SetBool("IsWalk", false);
+                anim.SetBool("IsAttack", true);
+                Invoke("EndAttack", 0.5f);
+            }
+        }
+        if (targetAttack.CompareTag("Temple"))
+        {
+            BoxCollider box = targetAttack.GetComponent<BoxCollider>();
+            
+            if (box != null)
+            {
+                Vector3 dir;
+                float distance;
+                Physics.ComputePenetration(capsule, transform.position, transform.rotation, box, box.transform.position, box.transform.rotation, out dir, out distance);
+                if (distance < 0.5f)
+                {
+                    isAttack = true;
+                    transform.rotation = Quaternion.LookRotation(direction);
+                    anim.SetBool("IsAttack", true);
+                    Invoke("EndAttack", 0.5f);
+                }
+            }
+        }
+    }
+
+    public void EndAttack()
+    {
+        anim.SetBool("IsAttack", false);
+        anim.SetBool("IsWalk", isMove);
+        isAttack = false;
+    }
+
+    private void LookAtWaypoint()
     {
         // ѕоворачиваем врага в сторону следующей точки
         Vector3 dir = target - transform.position;dir.y = 0f;
@@ -69,7 +116,7 @@ public class EnemyMovement : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRot, rotationSpeed * Time.deltaTime);
     }
 
-    void MoveTowardsWaypoint()
+    private void MoveTowardsWaypoint()
     {
         // ѕеремещаем врага к текущей точке
         Vector3 dir = target - transform.position;dir.y = 0f;
@@ -87,7 +134,7 @@ public class EnemyMovement : MonoBehaviour
         {
             isMove = false;
             //anim.SetFloat("Speed", 0);
-            anim.SetTrigger("IsWalk");
+            anim.SetBool("IsWalk", false);
         }
     }
 
@@ -99,6 +146,6 @@ public class EnemyMovement : MonoBehaviour
         target = points[curIndex];
         isMove = true;
         //anim.SetFloat("Speed", 1f);
-        anim.SetTrigger("IsWalk");
+        anim.SetBool("IsWalk", true);
     }
 }
