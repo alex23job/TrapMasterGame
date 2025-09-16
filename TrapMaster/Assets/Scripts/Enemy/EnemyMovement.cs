@@ -55,7 +55,7 @@ public class EnemyMovement : MonoBehaviour
             }
             //anim.SetFloat("Speed", 1f);
         }
-        else anim.SetBool("IsWalk", false);
+        //else anim.SetBool("IsWalk", false);
     }
 
     /*void NextWaypoint()

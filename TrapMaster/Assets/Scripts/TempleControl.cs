@@ -4,6 +4,9 @@ public class TempleControl : MonoBehaviour
 {
     private Animator _animDoorLeft, _animDoorRight;
 
+    private int maxTempleHP = 1000;
+    private int templeHP = 1000;
+
     private float timer = 1f;
     private int count = 0;
 
@@ -45,5 +48,17 @@ public class TempleControl : MonoBehaviour
             count %= 4;
             //print(count);
         }
+    }
+
+    public void ChangeHP(int zn)
+    {
+        if (templeHP + zn > maxTempleHP) templeHP = maxTempleHP;
+        else if (templeHP + zn < 0)
+        {   //  наш замок разрушен !!!
+            templeHP = 0;
+            Destroy(gameObject);
+        }
+        else templeHP += zn;
+
     }
 }

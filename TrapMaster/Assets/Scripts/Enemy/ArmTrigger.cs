@@ -32,6 +32,10 @@ public class ArmTrigger : MonoBehaviour
             {
                 other.gameObject.GetComponent<PlayerControl>().ChangeHP(-damage);
             }
+            if (other.CompareTag("Temple"))
+            {
+                other.gameObject.GetComponent<TempleControl>().ChangeHP(-damage);
+            }
         }
     }
 
