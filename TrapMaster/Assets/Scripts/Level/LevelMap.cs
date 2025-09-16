@@ -120,7 +120,7 @@ public class LevelMap : MonoBehaviour
         print($"count spawn = {listSpawns.Count}");
         foreach(SpawnEnemy spawn in listSpawns)
         {
-            spawn.SetPrefab(enemyList[0]);
+            spawn.SetPrefab(enemyList[0], new EnemyInfo("Воин с молотом", 10, 5, 10, 10, 2));
             spawn.SetDelaySpawn(5f);
             List<int> path = GetEnemyPath(spawn.SpawnPos);
             List<Vector3> vectors = new List<Vector3>();

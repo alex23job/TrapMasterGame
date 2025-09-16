@@ -6,6 +6,7 @@ using UnityEngine;
 public class SpawnEnemy : MonoBehaviour
 {
     private GameObject enemyPrefab;
+    private EnemyInfo enemyInfo;
     private List<Vector3> path = new List<Vector3>();
     private float spawnDelay = 0;
     private float timer;
@@ -41,9 +42,10 @@ public class SpawnEnemy : MonoBehaviour
         levelControl = lc;
     }
 
-    public void SetPrefab(GameObject prefab)
+    public void SetPrefab(GameObject prefab, EnemyInfo enemyInfo)
     {
         enemyPrefab = prefab;
+        this.enemyInfo = enemyInfo;
         if (spawnPosition == Vector3.zero)
         {
             spawnPosition = transform.parent.position;
@@ -94,5 +96,6 @@ public class SpawnEnemy : MonoBehaviour
         GameObject enemy = Instantiate(enemyPrefab, pos, transform.rotation);
         //print($"Enemy spawn position = <{enemy.transform.position}> (rot=<{enemy.transform.rotation.eulerAngles}>)     point[0] = <{path[0]}>");
         enemy.GetComponent<EnemyMovement>().SetPath(path);
+        enemy.GetComponent<EnemyControl>().SetParams(levelControl, enemyInfo);
     }
 }
