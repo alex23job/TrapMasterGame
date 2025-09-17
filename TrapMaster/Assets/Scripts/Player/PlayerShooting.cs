@@ -51,7 +51,7 @@ public class PlayerShooting : MonoBehaviour
             if (isShoot == false)
             {
                 //anim.SetFloat("WalkSpeed", 0);
-                anim.SetTrigger("IsShoot");
+                anim.SetBool("IsShoot", true);
                 isShoot = true;
                 Invoke("EndShoot", 0.55f);
             }
@@ -62,8 +62,8 @@ public class PlayerShooting : MonoBehaviour
     {
         if (isShoot)
         {
-            anim.SetTrigger("IsShoot");
-            isShoot= false;
+            anim.SetBool("IsShoot", false);
+            isShoot = false;
         }
     }
 
