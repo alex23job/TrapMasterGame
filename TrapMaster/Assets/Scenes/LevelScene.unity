@@ -679,6 +679,7 @@ GameObject:
   - component: {fileID: 335077582}
   - component: {fileID: 335077581}
   - component: {fileID: 335077583}
+  - component: {fileID: 335077584}
   m_Layer: 0
   m_Name: Level
   m_TagString: Untagged
@@ -752,6 +753,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ui_Control: {fileID: 1559498256}
+  playerControl: {fileID: 1371617932}
+--- !u!114 &335077584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 335077580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 657ddc8a77ca77e468a2296822a42351, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bonusesPrefabs:
+  - {fileID: 2037547669173176148, guid: 05d297fc2b0b56047bf0c2c46b3f1128, type: 3}
+  - {fileID: 3078987309238966917, guid: 2d00f151f3f836c4bbe3eb28bdc5d5e9, type: 3}
+  - {fileID: 4547554433249961815, guid: dd41afa32219db84a97a67d4013e7525, type: 3}
+  - {fileID: 4978112569513469102, guid: 07bfead93e7563a42938cf0f10f5c291, type: 3}
+  - {fileID: 3669249470876295333, guid: 6bbb261e6551d654d9dc87b5b402a0de, type: 3}
+  spawnBonusDelay: 5
 --- !u!4 &343794378 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2394772902890621913, guid: 666502b0a0d5f934d86206267930f329, type: 3}
@@ -2025,6 +2046,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxEnergy: 100
+  recoverableEnergy: 1
   maxHP: 100
   levelControl: {fileID: 335077583}
 --- !u!1001 &1378627110

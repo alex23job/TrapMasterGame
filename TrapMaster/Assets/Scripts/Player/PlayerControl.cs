@@ -58,6 +58,16 @@ public class PlayerControl : MonoBehaviour
         ViewHP();
     }
 
+    public void AddingMany(int zn)
+    {
+        levelControl.ChangeMany(zn);
+    }
+
+    public void AddingEnergy(int zn)
+    {
+        shooting.ChangeEnergy(zn);
+    }
+
     private void ViewHP()
     {
         if (levelControl != null) levelControl.ViewPlayerHP(currentHP);

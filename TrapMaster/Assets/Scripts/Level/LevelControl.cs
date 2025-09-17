@@ -3,9 +3,12 @@ using UnityEngine;
 public class LevelControl : MonoBehaviour
 {
     [SerializeField] private UI_Control ui_Control;
+    [SerializeField] private PlayerControl playerControl;
 
     private int currentMany = 0;
     private int currentExp = 0;
+
+    public int CurrentMany { get => currentMany; }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -27,6 +30,17 @@ public class LevelControl : MonoBehaviour
         ui_Control.ViewMany(currentMany);
     }
 
+    public bool CheckMany(int zn)
+    {
+        return currentMany >= zn;
+    }
+
+    public void ChangeMany(int zn)
+    {
+        currentMany += zn;
+        ui_Control.ViewMany(currentMany);
+    }
+
     public void ViewPlayerEnergy(int energy)
     {
         ui_Control.ViewEnergy(energy);
@@ -35,5 +49,10 @@ public class LevelControl : MonoBehaviour
     public void ViewPlayerHP(int hp)
     {
         ui_Control.ViewHP(hp);
+    }
+
+    public PlayerControl GetPlayerControl()
+    {
+        return playerControl;
     }
 }

@@ -2,9 +2,7 @@ using UnityEngine;
 
 public class DoorTempleTrigger : MonoBehaviour
 {
-    [SerializeField] private string doorID;
     private Animator anim;
-    private string openTrigger, closeTrigger;
 
     private void Awake()
     {
@@ -14,17 +12,6 @@ public class DoorTempleTrigger : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        if (doorID != "R")
-        {
-            openTrigger = "DLOpenTrigger";
-            closeTrigger = "DLCloseTrigger";
-        }
-        if (doorID != "L")
-        {
-            openTrigger = "DROpenTrigger";
-            closeTrigger = "DRCloseTrigger";
-        }
-
     }
 
     // Update is called once per frame
@@ -37,8 +24,6 @@ public class DoorTempleTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            //anim.SetTrigger(openTrigger);
-            //anim.SetTrigger(openTrigger);
             anim.SetBool("IsOpen", true);
         }
     }
@@ -47,8 +32,6 @@ public class DoorTempleTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            //anim.SetTrigger(closeTrigger);
-            //anim.SetTrigger(closeTrigger);
             anim.SetBool("IsOpen", false);
         }
     }

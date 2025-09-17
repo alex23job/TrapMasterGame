@@ -12,6 +12,7 @@ public class LevelMap : MonoBehaviour
     private List<MapLevelInfo> mapLevels = new List<MapLevelInfo>();
     private List<GameObject> sets = new List<GameObject>();
     private List<SpawnEnemy> listSpawns = new List<SpawnEnemy>();
+    private List<SpawnBonus> listBonusSpawns = new List<SpawnBonus>();
     private int sizePole = 20;
     private int[] pole;
 
@@ -109,6 +110,20 @@ public class LevelMap : MonoBehaviour
                         }
                     }
                     setFor.SetPositionAndRotation(-16f, 8f, 16f, 8, 0);
+                    if (setsInfo.ID > 1)
+                    {   //  будем искать RoadEnd
+                        SpawnBonus[] spawnBonuses = goSet.GetComponentsInChildren<SpawnBonus>();
+                        if (spawnBonuses.Length > 0)
+                        {
+                            listBonusSpawns.AddRange(spawnBonuses);
+                            /*StringBuilder sb = new StringBuilder($"i={i}  count={spawnBonuses.Length} ");
+                            for (int k = 0; k < spawnBonuses.Length; k++)
+                            {
+                                sb.Append($"k={k} name={spawnBonuses[k].name} pos={spawnBonuses[k].transform.position} ");
+                            }
+                            print(sb.ToString());*/
+                        }
+                    }
                 }
                 sets.Add(goSet);
             }
@@ -118,6 +133,7 @@ public class LevelMap : MonoBehaviour
     private void BeginSpawn()
     {
         print($"count spawn = {listSpawns.Count}");
+        
         foreach(SpawnEnemy spawn in listSpawns)
         {
             spawn.SetPrefab(enemyList[0], new EnemyInfo("Воин с молотом", 10, 5, 10, 10, 2));
@@ -131,8 +147,31 @@ public class LevelMap : MonoBehaviour
                     vectors.Add(new Vector3(-19f + 2 * (num % sizePole), 1f, 19f - 2 * (num / sizePole)));
                 }
                 spawn.TranslatePath(vectors);
+
+                List<int> nums = new List<int>();
+                for (int i = 0; i < listBonusSpawns.Count; i++)
+                {
+                    Vector3 pos = listBonusSpawns[i].gameObject.transform.position;
+                    pos.y = 1f;
+                    foreach (Vector3 vec in vectors)
+                    {
+                        Vector3 delta = pos - vec;
+                        if (delta.magnitude < 0.1f) { nums.Add(i); break; }
+                    }
+                }
+                if (nums.Count > 0)
+                {
+                    foreach(int num in nums) listBonusSpawns.RemoveAt(num);
+                }
             }
         }
+        //  передача списка точек для спавна бонусов
+        BonusesSpawnControl bsc = GetComponent<BonusesSpawnControl>();
+        PlayerControl playerControl = gameObject.GetComponent<LevelControl>().GetPlayerControl();
+        bsc.SetPlayerControl(playerControl);
+        List<Vector3> spawnPoints = new List<Vector3>();
+        foreach(SpawnBonus spawnBonus in listBonusSpawns) spawnPoints.Add(spawnBonus.transform.position);
+        if (bsc != null) bsc.SetSpawnPoints(spawnPoints);
     }
 
     private List<int> GetEnemyPath(Vector3 spawnPos)

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7213982518278547120}
   - component: {fileID: 6862597642911771576}
   - component: {fileID: 1383537125434712098}
+  - component: {fileID: 5278681913723182890}
   m_Layer: 0
   m_Name: AppleBody
   m_TagString: Untagged
@@ -104,11 +105,11 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.0036525277
+  m_Radius: 0.004652528
   m_Center: {x: -0.0000000010477379, y: 0.0000000011641532, z: -0.00039536343}
 --- !u!95 &1383537125434712098
 Animator:
@@ -123,7 +124,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: a9d2445a83bfe194583e519e95d91117, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_AnimatePhysics: 0
@@ -132,6 +133,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5278681913723182890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 58830418977749478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 956af9596bde9df42b12e6c0bc9993fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bonusID: 3
 --- !u!1 &4547554433249961815
 GameObject:
   m_ObjectHideFlags: 0

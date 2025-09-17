@@ -189,6 +189,7 @@ GameObject:
   - component: {fileID: 4143901035593623114}
   - component: {fileID: 3908767727046258659}
   - component: {fileID: 6807689144915922816}
+  - component: {fileID: 557412208558943942}
   m_Layer: 0
   m_Name: Chest
   m_TagString: Untagged
@@ -229,11 +230,11 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 0.7, z: 0.6}
+  m_Size: {x: 1.5, y: 0.7, z: 1}
   m_Center: {x: 0, y: 0.1, z: 0}
 --- !u!95 &6807689144915922816
 Animator:
@@ -248,7 +249,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: ec68dedcab075864a88489f0ad2905f6, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_AnimatePhysics: 0
@@ -257,6 +258,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &557412208558943942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3669249470876295333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 956af9596bde9df42b12e6c0bc9993fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bonusID: 5
 --- !u!1 &7021504043143172843
 GameObject:
   m_ObjectHideFlags: 0
@@ -371,13 +385,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8939625286842448254}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7660445, y: 0, z: 0, w: 0.64278764}
+  m_LocalRotation: {x: 0.052335896, y: 0, z: 0, w: 0.9986295}
   m_LocalPosition: {x: 0, y: 0.00019, z: 0.00605}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4357100707799637132}
-  m_LocalEulerAnglesHint: {x: -100, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 6, y: 0, z: 0}
 --- !u!33 &8332419351320606787
 MeshFilter:
   m_ObjectHideFlags: 0

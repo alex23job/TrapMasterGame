@@ -8,7 +8,7 @@ public class TempleControl : MonoBehaviour
     private int templeHP = 1000;
 
     private float timer = 1f;
-    private int count = 0;
+    //private int count = 0;
 
     private void Awake()
     {
