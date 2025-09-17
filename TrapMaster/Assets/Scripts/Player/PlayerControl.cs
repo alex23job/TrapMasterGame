@@ -3,12 +3,14 @@ using UnityEngine;
 public class PlayerControl : MonoBehaviour
 {
     [SerializeField] private int maxEnergy = 100;
+    [SerializeField] private int recoverableEnergy = 1;
     [SerializeField] private int maxHP = 100;
     [SerializeField] private LevelControl levelControl;
 
     private PlayerShooting shooting;
 
     private int currentHP;
+    private float timer = 0.5f;
 
     private void Awake()
     {
@@ -26,7 +28,12 @@ public class PlayerControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (timer > 0) timer -= Time.deltaTime;
+        else
+        {
+            timer = 0.5f;
+            if ((transform.position.x > -1f && transform.position.x < 1f) && (transform.position.z > -1f && transform.position.z < 1f)) shooting.ChangeEnergy(recoverableEnergy);
+        }
     }
 
     private void TranslateParams()
