@@ -25,7 +25,7 @@ public class TempleControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (timer > 0f) timer -= Time.deltaTime;
+        /*if (timer > 0f) timer -= Time.deltaTime;
         else
         {
             timer = 1f;
@@ -47,7 +47,7 @@ public class TempleControl : MonoBehaviour
             count++;
             count %= 4;
             //print(count);
-        }
+        }*/
     }
 
     public void ChangeHP(int zn)
